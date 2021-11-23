@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @auther konglingyang
@@ -32,7 +33,7 @@ public class PaymentController {
 
 
     @PostMapping("/payment/create")
-    public CommonResult<Payment> createPayment(@RequestBody Payment payment) {
+    public CommonResult<Payment> createPayment(Payment payment) {
 
         Integer createResult = paymentService.createPayment(payment);
         log.info("**************插入结果为：{}", createResult);
@@ -77,6 +78,16 @@ public class PaymentController {
     @GetMapping(value = "/payment/lb")
     public String getPaymnetLB() {
 
+        return serverPort;
+    }
+
+    @GetMapping(value = "/payment/timeout")
+    public String timeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3000);
+        }  catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 }
