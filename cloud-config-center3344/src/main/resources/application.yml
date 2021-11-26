@@ -1,0 +1,40 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:RchardoGit/springcloud-config  #   # Github上面的git仓库名称
+#          搜索目录
+          search-paths:
+            - springcloud-config
+#          username: RchardoGit
+#          password: Yang316@OK#
+        #       读取分支
+        default-label: main
+  rabbitmq:
+    host: 192.168.145.130
+    port: 5672
+    username: admin
+    password: 123
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: cloud-config-center
+    prefer-ip-address: true
+
+
+# rabbitmq相关配置，暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

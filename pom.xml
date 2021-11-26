@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.atguigu.springcloud</groupId>
@@ -20,8 +21,18 @@
         <module>cloud-provider-payment8006</module>
         <module>cloud-consumerConsul-order80</module>
         <module>cloud-consumer-feign-order80</module>
-        <module>cloud-provider-hystrix-payment</module>
         <module>cloud-consumer-feign-hystrix-order80</module>
+        <module>cloud-consumer-hystrix-dashboard9001</module>
+        <module>cloud-gateway-gateway9527</module>
+        <module>cloud-config-center3344</module>
+        <module>cloud-config-client3355</module>
+        <module>cloud-config-client3366</module>
+        <module>cloud-stream-rabbitmq-provider8801</module>
+        <module>cloud-stream-rabbitmq-consumer8802</module>
+        <module>cloud-stream-rabbitmq-consumer8803</module>
+        <module>cloud-provider-zippkin8901</module>
+        <module>cloud-consumer-zipkin80</module>
+        <module>cloudalibaba-provider-payment9001</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -37,32 +48,32 @@
         <mysql.version>5.1.49</mysql.version>
         <druid.version>1.2.8</druid.version>
         <mybatis.spring.boot.version>2.2.0</mybatis.spring.boot.version>
-   </properties>
+    </properties>
+
 
     <!--子模块继承之后，提供作用：锁定版本+子module不用写groupId和version -->
     <dependencyManagement>
         <dependencies>
-        <!--spring boot 2.2.2-->
-             <dependency>
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>2.4.6</version>
                 <type>pom</type>
                  <scope>import</scope>
             </dependency>
-            <!--spring cloud Hoxton.SR1-->
+            <!--spring cloud 2020.0.3-->
              <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2020.0.4</version>
+                <version>2020.0.3</version>
                 <type>pom</type>
                 <scope>import</scope>
              </dependency>
-            <!--spring cloud alibaba 2.1.0.RELEASE-->
+<!--            spring cloud alibaba 2.2.6.RELEASE-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>2.2.6.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -113,5 +124,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

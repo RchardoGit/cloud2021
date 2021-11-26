@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-zipkin
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1 # 表示采集完整度0-1 1为完整采集
+eureka:
+  instance:
+    instance-id: zipkin80
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
