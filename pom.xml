@@ -36,6 +36,11 @@
         <module>cloudalibaba-provider-payment9002</module>
         <module>cloudalibaba-consumer-nacos-order83</module>
         <module>cloudalibaba-nacos-config-client3377</module>
+        <module>cloudalibaba-sentinel-service8401</module>
+        <module>cloudalibaba-sentinel-service8402</module>
+        <module>cloudalibaba-nacos-sentinel-payment9003</module>
+        <module>cloudalibaba-nacos-sentinel-payment9004</module>
+        <module>cloudalibaba-nacos-sentinel-order80</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -51,6 +56,7 @@
         <mysql.version>5.1.49</mysql.version>
         <druid.version>1.2.8</druid.version>
         <mybatis.spring.boot.version>2.2.0</mybatis.spring.boot.version>
+        <mybatis.plus.boot>3.4.3</mybatis.plus.boot>
     </properties>
 
 
@@ -94,6 +100,12 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.boot}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
